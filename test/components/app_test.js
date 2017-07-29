@@ -1,6 +1,9 @@
 import { renderComponent, expect } from '../test_helper';
 import App from '../../src/components/app';
 import {beforeEach} from 'mocha';
+import jsdomify from 'jsdomify';
+
+let React;
 
 // Use 'describe' to group together similar tests
 describe('App', () => {
@@ -8,6 +11,8 @@ describe('App', () => {
     let component;
 
     beforeEach(() => {
+        jsdomify.create();
+        React = require('react');
         component = renderComponent(App);
     });
 

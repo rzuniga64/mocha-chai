@@ -1,12 +1,17 @@
 import { renderComponent, expect } from '../test_helper';
 import CommentBox from '../../src/components/comment_box';
 import {beforeEach} from 'mocha';
+import jsdomify from 'jsdomify';
+
+let React;
 
 describe('CommentBox', () => {
 
     let component;
 
     beforeEach(() => {
+        jsdomify.create();
+        React = require('react');
         component = renderComponent(CommentBox);
     });
 
@@ -24,6 +29,8 @@ describe('CommentBox', () => {
 
     describe('entering some text', () => {
         beforeEach(() => {
+            jsdomify.create();
+            React = require('react');
             component.find('textarea').simulate('change', 'new comment');
         });
 

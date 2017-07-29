@@ -47,7 +47,7 @@ $.fn.simulate = function(eventName, value) {
     if (value) {
         this.val(value);
     }
-    TestUtils.Simulate[eventName](this[0]);
+    ReactTestUtils.Simulate[eventName](this[0]);
 };
 
 // Set up chai-jquery
